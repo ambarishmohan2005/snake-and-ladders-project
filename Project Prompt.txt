@@ -1,0 +1,79 @@
+Build a simple hobby-style Snake and Ladders game. Keep it casual, not
+enterprise: short, readable code, no over-engineering.
+
+TECH
+- Plain HTML + CSS + JavaScript only. No frameworks, no build step, no npm
+  dependencies, no backend or database.
+- Everything lives in one folder with RELATIVE paths only, so it can be
+  copied to any drive and still work. It must run well on a low-spec laptop.
+- Low memory: draw snakes, ladders and dice with inline SVG/CSS/emoji
+  instead of large image files. Clean up timers and listeners.
+- Progressive Web App: a normal website on a laptop, installable on phone or
+  other devices. Must work under a GitHub Pages sub-path.
+
+PROJECT STRUCTURE
+snake-and-ladders/
+  index.html
+  style.css
+  script.js
+  manifest.json
+  service-worker.js
+  icons/        (small PWA icons only)
+  README.md
+
+SCREENS AND FEATURES
+1. Setup screen
+   - Add/remove players (no fixed small limit; at least 10 supported)
+   - Pick a colour for each peg
+   - Add robots (simple: auto-roll after a short delay, random behaviour,
+     no real AI)
+   - "Randomise Snakes & Ladders" button
+   - "Start Game" button
+   - The full 10x10 board (squares 1-100) with snakes and ladders is shown
+     here BEFORE the game starts, so the user can preview, randomise again,
+     or keep the layout.
+2. Board screen
+   - Layout is fixed once the game starts.
+   - The view focuses on ONE peg at a time: the current player's peg is
+     enlarged/glowing, the board scrolls or zooms to it (important on small
+     phone screens), and a "Player X's turn" indicator is shown.
+   - Dice: a "Roll Dice" button with a short rolling animation.
+   - Message after each roll, e.g. "Player 1 rolled 5: 32 -> 37", and
+     "Ladder! 37 -> 68" or "Snake! 62 -> 19".
+   - Snakes move the peg down, ladders move it up.
+   - Win by reaching exactly 100, then show a winner message and a Restart
+     button.
+3. Players view (separate tab/panel)
+   - A table listing player name, type (Human/Robot), colour, and current
+     square number. It updates live after every move.
+
+RANDOM LAYOUT RULES
+- No snake or ladder starts on square 1 or 100.
+- No two snakes/ladders share a square.
+- A snake always ends below its head; a ladder always ends above its
+  bottom.
+- Avoid extreme lengths (e.g. keep each jump between 10 and 60 squares).
+
+STYLE
+- Playful, colourful, hobby-like. Header: "Snake & Ladders - a little game
+  I built for fun". No login or accounts.
+
+PHASES (stop after each one and wait for my "continue")
+ Phase 1: Basic 100-square board (correct snake-style numbering)
+ Phase 2: Snakes and ladders drawn on the board
+ Phase 3: Pegs and colour selection
+ Phase 4: Dice and movement
+ Phase 5: Multiple players and turns
+ Phase 6: Robots
+ Phase 7: Random layout generator with preview before starting
+ Phase 8: Players status view
+ Phase 9: Mobile responsive design and peg-focused view
+ Phase 10: PWA (manifest, service worker, icons, offline) + localStorage
+           so a refresh doesn't lose the game
+ Phase 11: README (run steps, GitHub Pages deploy, screenshots section)
+           and a short LinkedIn-style project description
+
+After each phase, explain what you built and how to test it. At the end,
+report the folder size and the list of files.
+
+
